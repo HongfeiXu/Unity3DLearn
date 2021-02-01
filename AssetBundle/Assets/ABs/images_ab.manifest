@@ -1,0 +1,18 @@
+ManifestFileVersion: 0
+CRC: 1567039451
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e2edb36cc76045b206122f6d97cc193d
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- Assets/Images/doom-delisted-800x450.jpg
+- Assets/Images/Cyberpunk2077-Dead_end-zh-cn.jpg
+- Assets/Images/solar_ash.png
+Dependencies: []
