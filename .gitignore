@@ -6,6 +6,8 @@ Library/
 
 Logs/
 
+obj/
+
 
 # ----[ Visual Studio / MonoDevelop generated ]------- #
 
