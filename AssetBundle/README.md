@@ -48,7 +48,7 @@ Unity加载资源主要有两种方式：
 ### 方式1. 通过WWW对象加载
 
 1. public WWW(string url)，直接调用WWW类的构造函数，目标AssetBundle所在的路径作为其参数，构造WWW对象的过程中会加载Bundle文件并返回一个WWW对象，完成后会在内存中创建较大的WebStream（解压后的内容，通常为原Bundle文件的4~5倍大小，纹理资源比例可能更大），因此后续的AssetBundle.LoadAsset可以直接在内存中进行。
-2. public static WWW LoadFromCacheOrDownload(string url, int version, uint crc = 0)，WWW类的一个静态方法，调用该方法同样会加载Bundle文件同时返回一个WWW对象，和上一个直接调用WWW的构造函数的区别在于该方法会将解压形式的Bundle内容存入磁盘中作为缓存（如果该Bundle已在缓存中，则省去这一步），完成后只会在内存中创建较小的SerializedFile，而后续的AssetBundle.LoadAsset需要通过IO从磁盘中的缓存获取。
+2. [obsolete]public static WWW LoadFromCacheOrDownload(string url, int version, uint crc = 0)，WWW类的一个静态方法，调用该方法同样会加载Bundle文件同时返回一个WWW对象，和上一个直接调用WWW的构造函数的区别在于该方法会将解压形式的Bundle内容存入磁盘中作为缓存（如果该Bundle已在缓存中，则省去这一步），完成后只会在内存中创建较小的SerializedFile，而后续的AssetBundle.LoadAsset需要通过IO从磁盘中的缓存获取。
    使用www加载资源的话，一般要注意两个问题：
    单个AssetBundle不能太大，最好不要超过1M
    同一个时间最好只下载一个，避免造成内存高峰
