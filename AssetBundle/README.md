@@ -67,8 +67,15 @@ Unity加载资源主要有两种方式：
 ### 加载要按照依赖关系的顺序
 
 加载资源还需要注意按照依赖关系来加载资源
+
+想想看下面的例子， Bundle1 中的一个材质（Material）引用了 Bundle2 中的一个纹理（Texture），在从 Bundle1 中加载材质前，你需要先将 Bundle2 加载到内存中。**你按照什么顺序加载 Bundle1 和 Bundle2 并不重要，重要的是，想从 Bundle1 中加载材质前，你需要先加载 Bundle2。**
+
 Unity打包AssetBundle时会同时生成一个Manifest的文件，加载方式和普通的AssetBundle一样，只不过他里面存储了依赖关系，哈希值，和变体等。
 加载一个AssetBundle时，要先加载他所依赖的AssetBundle：
+
+
+
+
 
 ## 参考链接
 

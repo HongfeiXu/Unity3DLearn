@@ -1,7 +1,15 @@
 ManifestFileVersion: 0
-CRC: 3828743369
+CRC: 409506711
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: unlit_0_ab
+      Name: shader_ab
+      Dependencies: {}
+    Info_1:
+      Name: mat_ab
+      Dependencies:
+        Dependency_0: shader_ab
+        Dependency_1: images_ab
+    Info_2:
+      Name: images_ab
       Dependencies: {}
