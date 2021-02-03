@@ -9,16 +9,24 @@ public class ABLoaderTest : MonoBehaviour
 {
     void OnGUI()
     {
-        if (GUI.Button(new Rect(10, 10, 150, 50), "GetABFromWWW"))
-        {
-            StartCoroutine(GetABFromWWW());
-        }
-        if (GUI.Button(new Rect(10, 70, 150, 50), "Test1"))
+        if (GUI.Button(new Rect(10, 10, 150, 50), "同步LoadAsset"))
         {
             AssetBundleTest1();
         }
-    }
+        if (GUI.Button(new Rect(10, 70, 150, 50), "异步LoadAsset"))
+        {
+            StartCoroutine(AssetBundleTest2());
+        }
+		if (GUI.Button(new Rect(10, 130, 150, 50), "卸载AB"))
+		{
+            AssetBundleTest3();
+		}
+	}
 
+
+    /// <summary>
+    /// 同步加载 ab 包中的 asset
+    /// </summary>
     void AssetBundleTest1()
     {
         // 加载目标ab包
@@ -28,16 +36,43 @@ public class ABLoaderTest : MonoBehaviour
             Debug.Log("Failed to load AssetBundle!");
             return;
         }
-        // 设置材质
-        Material mat = matAB.LoadAsset<Material>("Unlit_0");
-        GetComponent<MeshRenderer>().material = mat;
+		// 设置材质
+		Material mat = matAB.LoadAsset<Material>("Unlit_0");
+		GetComponent<MeshRenderer>().material = mat;
     }
 
-    /// <summary>
-    /// 从服务器下载
-    /// </summary>
-    /// <returns></returns>
-    IEnumerator GetABFromWWW()
+	/// <summary>
+	/// 异步加载 ab 包中的 asset
+	/// </summary>
+	IEnumerator AssetBundleTest2()
+	{
+		// 加载目标ab包
+		AssetBundle matAB = ABLoadManager.Instance.LoadAssetBundle("mat_ab");
+		if (matAB == null)
+		{
+			Debug.Log("Failed to load AssetBundle!");
+            yield break;
+		}
+		// 设置材质
+		AssetBundleRequest request = matAB.LoadAssetAsync<Material>("Unlit_1");
+		Debug.Log("request.progress = " + request.progress);
+		yield return request;
+        if (request.isDone)
+		{
+			GetComponent<MeshRenderer>().material = (Material)request.asset;
+		}
+	}
+
+    void AssetBundleTest3()
+	{
+        ABLoadManager.Instance.UnLoadAssetBundle("mat_ab");
+	}
+
+	/// <summary>
+	/// 从服务器下载
+	/// </summary>
+	/// <returns></returns>
+	IEnumerator GetABFromWWW()
     {
         // TODO: 加载依赖ab包 
 

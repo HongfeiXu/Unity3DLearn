@@ -73,4 +73,14 @@ public class ABLoadManager
 
 		return target_ab;
 	}
+
+	public void UnLoadAssetBundle(string abName)
+	{
+		if (!m_abDic.ContainsKey(abName))
+		{
+			return;
+		}
+		m_abDic[abName].Unload(true);
+		m_abDic.Remove(abName);
+	}
 }

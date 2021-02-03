@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 252385191
+CRC: 3839165530
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f56a167cd269c2ae82a4a7f6d256e1a2
+    Hash: bab1d3d473c2e397cec78e1465144944
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 2164263bd948184a9373784f776f453a
+    Hash: 22357172b8cea85847937e8f62d0c077
 HashAppended: 0
 ClassTypes:
 - Class: 21
@@ -20,5 +20,5 @@ Assets:
 - Assets/Materials/Red.mat
 - Assets/Materials/Unlit_1.mat
 Dependencies:
-- G:/Projects/Unity3DLearn/AssetBundle/Assets/ABs/shader_ab
 - G:/Projects/Unity3DLearn/AssetBundle/Assets/ABs/images_ab
+- G:/Projects/Unity3DLearn/AssetBundle/Assets/ABs/shader_ab

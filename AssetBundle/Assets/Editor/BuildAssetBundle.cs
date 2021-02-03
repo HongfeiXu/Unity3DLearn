@@ -27,6 +27,6 @@ public class BuildAssetBundle
 	static void BuildAssetBundles(BuildTarget buildTarget)
 	{
 		// Put the bundles in a folder called "ABs" within the Assets folder.
-		BuildPipeline.BuildAssetBundles("Assets/ABs", BuildAssetBundleOptions.UncompressedAssetBundle, buildTarget);
+		BuildPipeline.BuildAssetBundles("Assets/ABs", BuildAssetBundleOptions.None,buildTarget);
 	}
 }
