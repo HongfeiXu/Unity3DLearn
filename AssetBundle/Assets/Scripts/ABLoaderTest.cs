@@ -29,7 +29,7 @@ public class ABLoaderTest : MonoBehaviour
             return;
         }
         // 设置材质
-        Material mat = (Material)matAB.LoadAsset("Unlit_0");
+        Material mat = matAB.LoadAsset<Material>("Unlit_0");
         GetComponent<MeshRenderer>().material = mat;
     }
 
