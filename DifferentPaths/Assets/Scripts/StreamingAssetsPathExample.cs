@@ -32,7 +32,7 @@ public class StreamingAssetsPathExample : MonoBehaviour
         status = "Press to play";
 
         TestStreamingAssetsPath();
-    }
+	}
 
 
     void TestStreamingAssetsPath()
@@ -53,14 +53,14 @@ public class StreamingAssetsPathExample : MonoBehaviour
         byte[] result;
         if (filePath.Contains("://") || filePath.Contains(":///"))  // 安卓会走这里
         {
-            Debug.Log("111");
+            Debug.Log("ReadFromStreamingAssets goes to UnityWebRequest");
             UnityEngine.Networking.UnityWebRequest www = UnityEngine.Networking.UnityWebRequest.Get(filePath);
             yield return www.SendWebRequest();
             result = www.downloadHandler.data;
         }
         else
 		{
-            Debug.Log("222");
+            Debug.Log("ReadFromStreamingAssets goes to File.ReadAllBytes");
             result = File.ReadAllBytes(filePath);
         }
         Debug.Log("Application.persistentDataPath = " + Application.persistentDataPath);
@@ -72,7 +72,7 @@ public class StreamingAssetsPathExample : MonoBehaviour
         GUIStyle buttonWidth = new GUIStyle(GUI.skin.GetStyle("button"));
         buttonWidth.fontSize = 18 * (Screen.width / 800);
 
-        if (GUI.Button(new Rect(Screen.width / 16, Screen.height / 16, Screen.width / 3, Screen.height / 8), status, buttonWidth))
+        if (GUI.Button(new Rect(100, 100, 200, 80), status, buttonWidth))
         {
             if (videoPlayer.isPlaying)
             {
