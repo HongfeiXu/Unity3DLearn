@@ -51,7 +51,7 @@ public class StreamingAssetsPathExample : MonoBehaviour
     {
         string filePath = Path.Combine(Application.streamingAssetsPath, "test1.mp4");
         byte[] result;
-        if (filePath.Contains("://") || filePath.Contains(":///"))
+        if (filePath.Contains("://") || filePath.Contains(":///"))  // 安卓会走这里
         {
             Debug.Log("111");
             UnityEngine.Networking.UnityWebRequest www = UnityEngine.Networking.UnityWebRequest.Get(filePath);
